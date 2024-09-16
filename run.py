@@ -3,7 +3,6 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -26,12 +25,12 @@ def get_sales_data():
         print("Data should be six numbers, seperated by commas.")
         print("Example: 10, 20, 30, 40, 50, 60\n")
 
-        data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here: \n")
         
         sales_data = data_str.split(",")
 
         if validate_data(sales_data):
-            print("Data is valid")
+            print("Data is valid!")
             break
 
     return sales_data
@@ -40,7 +39,7 @@ def get_sales_data():
 def validate_data(values):
     """
     Inside the try, converts all string values to integers.
-    Raises VAlueError if strings cannot be converted into int,
+    Raises ValueError if strings cannot be converted into int,
     or if there aren't exactly 6 values. 
     """
     try:
